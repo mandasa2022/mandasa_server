@@ -688,7 +688,7 @@ db.query("DELETE FROM slider WHERE id= ?", id, (err,result)=>{
             const id = req.params.id;
             db.query("DELETE FROM brands_logo WHERE id= ?", id, (err,result)=>{
             if(err)console.log(err);
-            else res.send(result);
+            else res.send(result); 
             })
              })
 
