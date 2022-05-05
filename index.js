@@ -6,7 +6,7 @@ const app = express();
 const {Storage} = require('@google-cloud/storage');
 const path = require('path');
 
-const  PORT = process.env.PORT || 3002;
+const  PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended:true}));
