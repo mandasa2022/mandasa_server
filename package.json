@@ -3,8 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.15.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "node --inspect-brk server/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch ./server",
+    "prepare": "husky install",
+    "preserve": "npm run build",
+    "serve": "cross-env NODE_ENV=production node server/index.js",
+    "start": "npm run serve",
+    "test": "vitest --reporter=verbose",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +22,12 @@
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "express": "^4.17.3",
+    "husky": "^7.0.4",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "yarn": "^1.22.18"
   }
 }
+
