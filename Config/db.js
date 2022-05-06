@@ -1,13 +1,15 @@
 const mysql = require('mysql')
 const db = mysql.createConnection({
-// host: "34.68.150.185",
+host: "pscadda.com",
+user: "pscadda_drillcut",
+password: "Pscaddadrillcut",
+database:"pscadda_drillcut",
+port: 3306,
+insecureAuth: true
+// host: "localhost",
 // user: "root",
-// password: "Drillcut@2022",
-// database:"Drillcut" 
-host: "localhost",
-user: "root",
-password: "",
-database:"drillcut" 
+// password: "",
+// database:"drillcut" 
 })
 
 module.exports = db;

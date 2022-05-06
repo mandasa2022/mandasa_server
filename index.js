@@ -3,31 +3,13 @@ const db = require('./config/db')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const app = express();
-const {Storage} = require('@google-cloud/storage');
-const path = require('path');
 
-const  PORT = process.env.PORT || 3001;
+const  PORT = process.env.PORT || 3002;
 app.use(cors());
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended:true}));
 
-const storage = new Storage({
-  keyFilename:path.join(__dirname,"./heroic-light-346712-cc20385e7f32.json"),
-  projectId:'heroic-light-346712'
-})
 
-const bucket = 'drillcut-files';
-const fileName = 'team.png';
-
-const myBucket = storage.bucket(bucket);
-const file = myBucket.file(fileName);
-
-// [END storage_upload_file]
-
-
-// https://drillcut-files.storage.googleapis.com/team.png
-
-// https://momentsjewellery-eu.myshopify.com/admin/themes/128458227894/editor
 // Route to get all Home Pages
 app.get("/api/get-banner", (req,res)=>{
 db.query("SELECT * FROM banner", (err,result)=>{
